@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
   <Fragment> 
     <Hero />
-    {/* <FeaturedPosts /> */}
+    <FeaturedPosts />
   </Fragment>
   )
 }

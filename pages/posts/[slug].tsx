@@ -1,9 +1,7 @@
 import * as React from "react";
-import {
-  PostContentProps,
-  PostContent,
-} from "../../components/layout/posts/post-detail/post-content";
+import PostContent from "../../components/layout/posts/post-detail/post-content";
 import { getPostData, getPostsFiles } from "../../lib/posts-util";
+import { PostContentProps } from "../../types/types";
 
 function PostDetailPage({ post }: { post: PostContentProps }) {
   return (
@@ -31,7 +29,7 @@ export function getStaticPaths() {
 
   return {
     paths: slugs.map((slug) => ({ params: { slug } })),
-    fallback: false
+    fallback: false,
   };
 }
 

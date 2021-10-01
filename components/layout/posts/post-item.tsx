@@ -20,7 +20,6 @@ export function PostItem(props: IPostItemProps) {
   const imagePath = `/images/posts/${slug}/${image}`;
   const linkPath = `/posts/${slug}`;
 
-  console.log(imagePath);
 
   return (
     <li className={classes.post}>

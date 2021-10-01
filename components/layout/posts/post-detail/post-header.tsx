@@ -1,14 +1,10 @@
 import * as React from 'react';
 import classes from './post-header.module.css'
 import Image from 'next/image'
+// TODO: better import system
+import { PostHeaderProps } from '../../../../types/types';
 
-export interface PostHeaderPros {
-    title: string,
-    image: string
-}
-
-export function PostHeader ({title, image}: PostHeaderPros) {
-  console.log({image});
+export function PostHeader ({title, image}: PostHeaderProps) {
   
   return (
     <header className={classes.header}>
@@ -18,3 +14,5 @@ export function PostHeader ({title, image}: PostHeaderPros) {
     </header>
   );
 }
+
+export default PostHeader

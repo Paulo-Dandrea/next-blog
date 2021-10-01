@@ -14,7 +14,6 @@ export function getPostData(postIdentifier) {
   const filePath = path.join(postsDir,`${postSlug}.md`);
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  console.log(fileContent)
   const { data, content } = matter(fileContent);
 
 
@@ -30,7 +29,6 @@ export function getPostData(postIdentifier) {
 
 export function getAllPosts() {
   const postfiles = getPostsFiles()
-  console.log(postfiles);
   
 
   const allPosts = postfiles.map((postFileName) => getPostData(postFileName));

@@ -1,22 +1,9 @@
 import * as React from "react";
+import { Post } from "../../types/types";
 import { PostsGrid } from "../layout/posts/post-grid";
 import classes from "./featured-posts.module.css";
 
-
-export type Post = {
-  slug: string;
-  title: string;
-  image: string;
-  excerpt: string;
-  date: string;
-}
-export interface IFeaturedPostsProps {
-posts: Post[]
-}[]
-
-
-export function FeaturedPosts(props: IFeaturedPostsProps) {
-  const { posts } = props;
+export function FeaturedPosts({ posts }: { posts: Post[] }) {
   return (
     <section className={classes.featuredPosts}>
       <h2>Featured Posts</h2>

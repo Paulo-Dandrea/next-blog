@@ -3,13 +3,13 @@ import { Fragment } from "react";
 import { FeaturedPosts } from "../components/home-page/featured-posts";
 import Hero from "../components/home-page/hero";
 import { getFeaturedPosts } from "../lib/posts-util";
+import { Post } from "../types/types";
 
 
 // We could use useEffect and FETCH data on mount
 // But using getStaticPros and etc, we could pre-render a page with the data already
 
-const Home: NextPage = ({posts}) => {
-  console.log(posts)
+const Home: NextPage = ({posts} : {posts: Post[]}) => {
   return (
     <Fragment>
       <Hero />

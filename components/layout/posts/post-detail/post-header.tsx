@@ -8,6 +8,8 @@ export interface PostHeaderPros {
 }
 
 export function PostHeader ({title, image}: PostHeaderPros) {
+  console.log({image});
+  
   return (
     <header className={classes.header}>
         <h1>{title}</h1>

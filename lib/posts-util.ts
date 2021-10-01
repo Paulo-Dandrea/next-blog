@@ -1,14 +1,22 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-const postsDir = path.join(process.cwd());
 
-function getPostData(filename) {
-  const filePath = path.join(postsDir, filename);
+
+const postsDir = path.join(process.cwd(), 'posts');
+
+export function getPostsFiles() {
+  return fs.readdirSync(postsDir);
+}
+
+export function getPostData(postIdentifier) {
+  const postSlug = postIdentifier.replace(/\.md$/, ""); // removes the file extension
+  const filePath = path.join(postsDir,`${postSlug}.md`);
+
   const fileContent = fs.readFileSync(filePath, "utf-8");
+  console.log(fileContent)
   const { data, content } = matter(fileContent);
 
-  const postSlug = filename.replace(/\.md$/, ""); // removes the file extension
 
   const postData = {
     ...data,
@@ -21,11 +29,14 @@ function getPostData(filename) {
 }
 
 export function getAllPosts() {
-  const postfiles = fs.readdirSync(postsDir);
+  const postfiles = getPostsFiles()
+  console.log(postfiles);
+  
 
-  const allPosts = postfiles.map((postFile) => getPostData(postFile));
+  const allPosts = postfiles.map((postFileName) => getPostData(postFileName));
 
   const sortedPosts = allPosts.sort((postA, postB) => (postA > postB ? -1 : 1));
+
 
   return sortedPosts;
 }

@@ -31,7 +31,7 @@ export function PostItem(props: IPostItemProps) {
           </div>
           <div className={classes.content}>
             <h3>{title}</h3>
-            <time>July 14th 2022</time>
+            <time>{date}</time>
             <p>T{excerpt}</p>
           </div>
         </a>

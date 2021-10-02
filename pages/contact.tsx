@@ -1,12 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
+import ContactForm from "../components/contact/contact-form";
 
-export interface ContactPageProps {
+function ContactPage() {
+  return <ContactForm />;
 }
 
-export function ContactPage (props: ContactPageProps) {
-  return (
-    <div>
-      
-    </div>
-  );
-}
+export default ContactPage;

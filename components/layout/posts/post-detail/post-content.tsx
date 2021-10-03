@@ -17,7 +17,6 @@ function PostContent({post} : {post: PostContentProps}) {
 
       if (node.children[0].tagName === "img") {
         const image = node.children[0];
-        console.log({image})
 
         return (
           <div className={classes.image}>

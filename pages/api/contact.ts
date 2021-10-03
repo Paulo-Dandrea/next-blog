@@ -1,4 +1,6 @@
-function handler(req, res) {
+import { MongoClient } from "mongodb";
+
+async function handler(req, res) {
   if (req.method === "POST") {
     const { email, name, message } = req.body;
 
@@ -20,11 +22,19 @@ function handler(req, res) {
       message,
     };
 
-    console.log(newMessage);
+    const uri =
+      "mongodb+srv://blog:henero1234@cluster0.vvsfh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-    res
-      .status(201)
-      .send({ message: "Succesfully stored message", messageStoraged: newMessage });
+    try {
+      const client = await MongoClient.connect(uri);
+      const db = client.db("myFirstDatabase");
+      const collection = db.collection("messages");
+      await collection.insertOne(newMessage);
+      res.status(201).send({ message: "Message sent" });
+      client.close();
+    } catch (error) {
+      res.status(500).send({ message: "Internal server error" });
+    }
   }
 }
 

@@ -55,6 +55,10 @@ function ContactForm() {
       });
       console.log("sendContactData SEND");
       setRequestStatus("success");
+      setEnteredEmail("");
+      setEnteredName("");
+      setEnteredMessage("");
+      
     } catch (error) {
       setRequestError(error.message);
       setRequestStatus("error");

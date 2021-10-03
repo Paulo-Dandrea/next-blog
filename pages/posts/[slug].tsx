@@ -2,10 +2,15 @@ import * as React from "react";
 import PostContent from "../../components/layout/posts/post-detail/post-content";
 import { getPostData, getPostsFiles } from "../../lib/posts-util";
 import { PostContentProps } from "../../types/types";
+import Head from "next/head";
 
 function PostDetailPage({ post }: { post: PostContentProps }) {
   return (
     <div>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+      </Head>
       <PostContent post={post} />
     </div>
   );

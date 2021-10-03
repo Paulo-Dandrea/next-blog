@@ -1,12 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
+import { Post } from "../../types/types";
+import { PostsGrid } from "../layout/posts/post-grid";
+import classes from "./featured-posts.module.css";
 
-export interface IFeaturedPostsProps {
-}
-
-export function FeaturedPosts (props: IFeaturedPostsProps) {
+export function FeaturedPosts({ posts }: { posts: Post[] }) {
   return (
-    <div>
-      featured posts
-    </div>
+    <section className={classes.featuredPosts}>
+      <h2>Featured Posts</h2>
+      <PostsGrid posts={posts} />
+    </section>
   );
 }

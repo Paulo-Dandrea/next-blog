@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Post } from "../../types/types";
+import { TPost } from "../../types/types";
 import { PostsGrid } from "../layout/posts/post-grid";
 import classes from "./featured-posts.module.css";
 
-export function FeaturedPosts({ posts }: { posts: Post[] }) {
+export function FeaturedPosts({ posts }: { posts: TPost[] }) {
   return (
     <section className={classes.featuredPosts}>
       <h2>Featured Posts</h2>

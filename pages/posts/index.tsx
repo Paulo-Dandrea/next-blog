@@ -2,8 +2,9 @@ import * as React from 'react';
 import { AllPosts } from '../../components/layout/posts/all-posts';
 import { getAllPosts } from '../../lib/posts-util';
 import Head from 'next/head';
+import { TPost } from '../../types/types';
 
-function AllPostsPage ({posts}) {
+function AllPostsPage<TPost> ({posts}: {posts: TPost[]}) {
   return (
     <>
     <Head>
@@ -15,7 +16,7 @@ function AllPostsPage ({posts}) {
   );
 }
 
-export function getStaticProps(context) {
+export function getStaticProps() {
   return {
     props: { posts: getAllPosts() }, // will be passed to the page component as props
   };

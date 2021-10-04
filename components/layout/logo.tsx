@@ -1,12 +1,8 @@
 import * as React from 'react';
 import classes from './logo.module.css'
 
-
-export interface ILogoProps {
-}
-
-export function Logo (props: ILogoProps) {
+export function Logo () {
   return (
-<div className={classes.logo}>Paulo's Next Blog</div>
+<div className={classes.logo}>Paulo&apos;s Next Blog</div>
   );
 }

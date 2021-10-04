@@ -1,10 +1,13 @@
 import ReactDOM from "react-dom";
 
 import classes from "./notification.module.css";
+import { NotificationProps } from "../../types/types";
 
-function Notification(props) {
-  const { title, message, status } = props;
+const notificationsRoot = document.getElementById(
+  "notifications"
+) as HTMLElement;
 
+function Notification({ title, message, status }: NotificationProps) {
   let statusClasses = "";
 
   if (status === "success") {
@@ -22,7 +25,7 @@ function Notification(props) {
       <h2>{title}</h2>
       <p>{message}</p>
     </div>,
-    document.getElementById("notifications")
+    notificationsRoot
   );
 }
 

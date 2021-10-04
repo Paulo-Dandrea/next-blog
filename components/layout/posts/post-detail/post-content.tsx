@@ -7,12 +7,25 @@ import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 import { PostContentProps } from "../../../../types/types";
 
-function PostContent({post} : {post: PostContentProps}) {
+import React, { ReactNode, ReactElement } from "react";
+import { Content } from "mdast";
+
+type NodeToProps<T> = {
+  node: T;
+  children: T extends { children: any } ? ReactNode : never;
+};
+
+type CustomRenderers = {
+  [K in Content["type"]]?: (
+    props: NodeToProps<Extract<Content, { type: K }>>
+  ) => ReactElement;
+};
+
+function PostContent({ post }: { post: PostContentProps }) {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
-  const customRenderers = {
-
-    p(paragraph) {
+  const customRenderers: CustomRenderers = {
+    p(paragraph: { children?: any; node?: any }) {
       const { node } = paragraph;
 
       if (node.children[0].tagName === "img") {
@@ -33,7 +46,7 @@ function PostContent({post} : {post: PostContentProps}) {
       return <p>{paragraph.children}</p>;
     },
 
-    code(code) {
+    code(code: { className: any; children: any }): JSX.Element {
       const { className, children } = code;
       const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
       return (

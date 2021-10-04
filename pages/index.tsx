@@ -3,13 +3,13 @@ import { Fragment } from "react";
 import { FeaturedPosts } from "../components/home-page/featured-posts";
 import Hero from "../components/home-page/hero";
 import { getFeaturedPosts } from "../lib/posts-util";
-import { Post } from "../types/types";
+import { TPost } from "../types/types";
 
+interface Props {
+  posts: TPost[];
+}
 
-// We could use useEffect and FETCH data on mount
-// But using getStaticPros and etc, we could pre-render a page with the data already
-
-const Home: NextPage = ({posts} : {posts: Post[]}) => {
+const Home: NextPage<Props> = ({posts}) => {
   return (
     <Fragment>
       <Hero />
@@ -18,13 +18,9 @@ const Home: NextPage = ({posts} : {posts: Post[]}) => {
   );
 };
 
-// We could use getServerSideProps to always fetch all the featuredPosts when a request reaches the page.
-// But, as our posts are mostly STATIC, there's no need to render all the time.
-
-
-export function getStaticProps(context) {
+export function getStaticProps() {
   return {
-    props: { posts: getFeaturedPosts() }, // will be passed to the page component as props
+    props: { posts: getFeaturedPosts() }, 
   };
 }
 

@@ -1,31 +1,28 @@
 import { MongoClient } from "mongodb";
+import { NextApiRequest, NextApiResponse } from "next";
+import { isInputInvalid } from "../../lib/posts-util";
+import { TContactDetails } from "../../types/types";
 
-async function handler(req, res) {
+const uri =
+  "mongodb+srv://blog:henero1234@cluster0.vvsfh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const { email, name, message } = req.body;
+    const { email, name, message }: TContactDetails = req.body;
 
-    if (
-      !email ||
-      !email.includes("@") ||
-      !name ||
-      name.trim() === "" ||
-      !message ||
-      message.trim() === ""
-    ) {
-      res.status(422).send({ message: "Invalid input" });
-      return;
-    }
-    // Store it in a database
     const newMessage = {
       email,
       name,
       message,
     };
 
-    const uri =
-      "mongodb+srv://blog:henero1234@cluster0.vvsfh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    if (isInputInvalid(newMessage)) {
+      res.status(422).send({ message: "Invalid input" });
+      return;
+    }
 
     try {
+      // TODO: abstract collection
       const client = await MongoClient.connect(uri);
       const db = client.db("myFirstDatabase");
       const collection = db.collection("messages");

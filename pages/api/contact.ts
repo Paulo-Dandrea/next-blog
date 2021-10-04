@@ -22,7 +22,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 
     try {
-      // TODO: abstract collection
       const client = await MongoClient.connect(uri);
       const db = client.db("myFirstDatabase");
       const collection = db.collection("messages");

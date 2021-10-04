@@ -15,7 +15,7 @@ export function getPostData(postIdentifier: string) {
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
-  
+
   const postData = {
     ...data,
     content,
@@ -60,4 +60,3 @@ export function isInputInvalid({ name, email, message }: TContactDetails) {
     message.trim() === ""
   );
 }
-

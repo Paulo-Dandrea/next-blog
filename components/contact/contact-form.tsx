@@ -8,11 +8,42 @@ import {
   TContactDetails,
 } from "../../types/types";
 
+function getNotificationStatus(
+  requestStatus: string,
+  requestError: string
+) {
+  if (requestStatus === "success") {
+    return {
+      status: "success",
+      title: "Message sent",
+      message:
+        "Thank you for contacting us. We will get back to you as soon as possible.",
+    } as NotificationProps;
+  }
+
+  if (requestStatus === "pending") {
+    return {
+      status: "pending",
+      title: "Sending message...",
+      message: "Your message is on its way",
+    } as NotificationProps;
+  }
+
+  if (requestStatus === "error") {
+    return {
+      status: "error",
+      title: "Message not sent",
+      message: requestError,
+    } as NotificationProps;
+  }
+}
+
+
 async function sendContactData(contactDetails: TContactDetails) {
   const body = JSON.stringify(contactDetails);
 
   try {
-    const response = await fetch("/api/contact", {
+  await fetch("/api/contact", {
       method: "POST",
       body,
       mode: "no-cors",
@@ -38,7 +69,7 @@ function ContactForm() {
     if (requestStatus === "success" || requestStatus === "pending") {
       const timer = setTimeout(() => {
         setRequestStatus(null);
-        setRequestError;
+        setRequestError("");
       }, 5000);
       return () => clearTimeout(timer);
     }
@@ -74,29 +105,11 @@ function ContactForm() {
 
   let notification;
 
-  if (requestStatus === 'success') {
-    notification = {
-      status: "success",
-      title: "Message sent",
-      message:
-        "Thank you for contacting us. We will get back to you as soon as possible.",
-    } as NotificationProps;
-  }
-
-  if (requestStatus === 'pending') {
-    notification = {
-      status: "pending",
-      title: "Sending message...",
-      message: "Your message is on its way",
-    } as NotificationProps;
-  }
-
-  if (requestStatus === 'error') {
-    notification = {
-      status: "error",
-      title: "Message not sent",
-      message: requestError,
-    } as NotificationProps;
+  if (requestStatus !== null) {
+    notification = getNotificationStatus(
+      requestStatus,
+      requestError
+    );
   }
 
   return (
@@ -145,3 +158,4 @@ function ContactForm() {
 }
 
 export default ContactForm;
+

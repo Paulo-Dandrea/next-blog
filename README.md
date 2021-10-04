@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next - Blog
 
-## Getting Started
+Here is a Udemy [tutorial](https://www.udemy.com/course/nextjs-react-the-complete-guide/) that I followed along to learn Next and its basics principles.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [I've learned how to](#I've-learned-how-to)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Overview
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### The challenge
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Users should be able to:
 
-## Learn More
+- See blog's featured posts cards at /home
+- All posts sorted by date at /posts
+- See marked down post detail at /posts/:post
+- Send messages at /contact
 
-To learn more about Next.js, take a look at the following resources:
+And the app should:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Gather the marked-down post in our file system, parse it and get the related image with it.
+- Insert messages at /contact to my mongoDB collection
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Screenshot
 
-## Deploy on Vercel
+Home:
+![blog](/public/images/readme/blog.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All Posts Page:
+![All Posts](/public/images/readme/allPosts.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Post Detail Page:
+![All Posts](/public/images/readme/detail-page-1.png)
+
+Contact page:
+![Contact page](/public/images/readme/contact.png)
+
+## My process
+
+I followed Maximilian Schwarzmüller's Next instructions and added Typescript on top of that. I've refactored a little bit to better readability.
+
+### Built with
+
+- [Next.js](https://nextjs.org/) - React framework
+- [React Mark Down](https://github.com/remarkjs/react-markdown) - React Markdown
+- [React-Syntax-Highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter) - React Syntax Highliter
+- [MongoDB](https://www.mongodb.com) - MongoDB
+- [Typescript](https://www.typescriptlang.org/) - Typescript
+
+### I've learned how to
+
+- Get static props 
+- Do dynamic routing
+- Create Portals
+- Add meta to pages
+- Use server side to connect to Mongo
+
+### Continued development
+
+We need better design, folder structure, and displacements of functions.
+
+I'm not confortable typing React-Markdown lib yet.
+
+### Useful resources
+
+- [TS Cheatsheet ](https://react-typescript-cheatsheet.netlify.app/) - Organized typing examples
+
+- [Portals](https://pt-br.reactjs.org/docs/portals.html) - React Portals docs
+
+## Author
+
+- Linkedin - [Paulo Dandrea](https://www.linkedin.com/in/paulo-dandrea/)

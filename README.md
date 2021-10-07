@@ -1,6 +1,6 @@
 # Next - Blog
 
-Here is a Udemy [tutorial](https://www.udemy.com/course/nextjs-react-the-complete-guide/) that I followed along to learn Next and its basics principles.
+Here is a Udemy [tutorial](https://www.udemy.com/course/nextjs-react-the-complete-guide/) that I followed along to learn Next and its basic principles.
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ Here is a Udemy [tutorial](https://www.udemy.com/course/nextjs-react-the-complet
 
 Users should be able to:
 
-- See blog's featured posts cards at /home
+- See blog's featured post cards at /home
 - All posts sorted by date at /posts
 - See marked down post detail at /posts/:post
 - Send messages at /contact
@@ -33,21 +33,25 @@ And the app should:
 
 ### Screenshot
 
-Home:
+### Home:
+
 ![blog](/public/images/readme/blog.png)
 
-All Posts Page:
+### All Posts Page:
+
 ![All Posts](/public/images/readme/allPosts.png)
 
-Post Detail Page:
+### Post Detail Page:
+
 ![All Posts](/public/images/readme/detail-page-1.png)
 
-Contact page:
+### Contact page:
+
 ![Contact page](/public/images/readme/contact.png)
 
 ## My process
 
-I followed Maximilian Schwarzmüller's Next instructions and added Typescript on top of that. I've refactored a little bit to better readability.
+I followed Maximilian Schwarzmüller's Next instructions and added Typescript on top of that. I've refactored a little bit for better readability.
 
 ### Built with
 
@@ -61,15 +65,16 @@ I followed Maximilian Schwarzmüller's Next instructions and added Typescript on
 
 - Get static props 
 - Do dynamic routing
-- Create Portals
 - Add meta to pages
-- Use server side to connect to Mongo
+- Use server side to connect to MongoDB
+- Create portals
 
 ### Continued development
 
-We need better design, folder structure, and displacements of functions.
+We need better design, folder structure, and placement of functions.
 
 I'm not confortable typing React-Markdown lib yet.
+
 
 ### Useful resources
 
@@ -80,3 +85,4 @@ I'm not confortable typing React-Markdown lib yet.
 ## Author
 
 - Linkedin - [Paulo Dandrea](https://www.linkedin.com/in/paulo-dandrea/)
+
